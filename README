@@ -1,6 +1,11 @@
 Lite CMS
 ========
 
- - Allows us to create/edit/delete pages
- - Allow us to use (create/edit/delete) templates for pages
+ + Allows us to create/edit/delete pages
+ + Allow users to view a page at it's url
+ + Allow us to use (create/edit/delete) templates for pages
 
+ - nice html editor
+ - analytics
+ - contact form
+ - upload images

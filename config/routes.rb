@@ -1,5 +1,12 @@
 Litecms::Application.routes.draw do
-  resources :pages
+  resources :templates
+  resources :pages #, :except => [ :show ]
+  #get 'pages/:permalink' => 'pages#show', :as => 'pages'
+
+  get '*path' => 'pages#show'
+  root :to => 'pages#show'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

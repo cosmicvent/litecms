@@ -10,21 +10,21 @@ class PagesController < ApplicationController
     end
   end
 
-  # GET /pages/1
-  # GET /pages/1.json
   def show
-    @page = Page.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @page }
+    path = params[:path]
+    if path.nil?
+      @page = Page.first
+    else
+      @page = Page.where(:permalink => path).first
     end
+    render :text => @page.render
   end
 
   # GET /pages/new
   # GET /pages/new.json
   def new
     @page = Page.new
+    @templates = Template.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +35,7 @@ class PagesController < ApplicationController
   # GET /pages/1/edit
   def edit
     @page = Page.find(params[:id])
+    @templates = Template.all
   end
 
   # POST /pages
