@@ -1,8 +1,13 @@
 Litecms::Application.routes.draw do
+  resources :resources
+
+  resources :images
+
   resources :templates
   resources :pages #, :except => [ :show ]
   #get 'pages/:permalink' => 'pages#show', :as => 'pages'
 
+  get "css/*filename" => "resources#css"
   get '*path' => 'pages#show'
   root :to => 'pages#show'
 

@@ -17,6 +17,10 @@ class PagesController < ApplicationController
     else
       @page = Page.where(:permalink => path).first
     end
+
+    @page.update_attributes(:views => @page.views.to_i + 1)
+
+
     render :text => @page.render
   end
 
